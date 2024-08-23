@@ -14,7 +14,7 @@ const App = () => {
       <HomeCard />
 
       {/* <!-- Browse Jobs --> */}
-      <JobListings></JobListings>
+      <JobListings />
 
       <section className="m-auto max-w-lg my-10 px-6">
         <a
