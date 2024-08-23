@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const JobListing = ({
   company,
   title,
@@ -7,6 +9,12 @@ const JobListing = ({
   type,
   description,
 }) => {
+  const [showMore, setShowMore] = useState(false);
+
+  if (!showMore) {
+    description = description.substring(0, 90).trim() + "...";
+  }
+
   return (
     <div id={id} className="bg-white rounded-xl shadow-md relative">
       <div className="p-4">
@@ -16,6 +24,13 @@ const JobListing = ({
         </div>
 
         <div className="mb-5">{description}</div>
+
+        <button
+          onClick={() => setShowMore((prevState) => !prevState)}
+          className="text-indigo-500 mb-5 hover:text-indigo-600"
+        >
+          {showMore ? "Less" : "More"}
+        </button>
 
         <h3 className="text-indigo-500 mb-2">{salary} / Year</h3>
 
